@@ -1,0 +1,51 @@
+{
+  "raafiqApp": {
+    "famille": {
+      "home": {
+        "title": "Familles",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Famille",
+        "createOrEditLabel": "Create or edit a Famille",
+        "notFound": "No Familles found"
+      },
+      "created": "A new Famille is created with identifier {{ param }}",
+      "updated": "A Famille is updated with identifier {{ param }}",
+      "deleted": "A Famille is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Famille {{ id }}?"
+      },
+      "detail": {
+        "title": "Famille"
+      },
+      "id": "Id",
+      "adresse": "Adresse",
+      "benef2019": "Benef 2019",
+      "benef2020": "Benef 2020",
+      "cin": "Cin",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateNaissance": "Date Naissance",
+      "email": "Email",
+      "etat": "Etat",
+      "explicationRefus": "Explication Refus",
+      "nbrEnfants": "Nbr Enfants",
+      "niveauScolarite": "Niveau Scolarite",
+      "nom": "Nom",
+      "nomFr": "Nom Fr",
+      "numeroDossier": "Numero Dossier",
+      "prenom": "Prenom",
+      "prenomFr": "Prenom Fr",
+      "profession": "Profession",
+      "selectionner": "Selectionner",
+      "sexe": "Sexe",
+      "telephone": "Telephone",
+      "autreBenef2019": "Autre Benef 2019",
+      "autreBenef2020": "Autre Benef 2020",
+      "relationFamiliale": "Relation Familiale",
+      "appUser": "App User",
+      "enfant": "Enfant",
+      "motifRefus": "Motif Refus",
+      "province": "Province"
+    }
+  }
+}

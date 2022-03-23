@@ -1,0 +1,50 @@
+{
+  "raafiqApp": {
+    "professionnel": {
+      "home": {
+        "title": "Professionnels",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Professionnel",
+        "createOrEditLabel": "Créer ou éditer un Professionnel",
+        "notFound": "Aucun Professionnel trouvé"
+      },
+      "created": "Un nouveau Professionnel a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Professionnel avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Professionnel avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Professionnel {{ id }} ?"
+      },
+      "detail": {
+        "title": "Professionnel"
+      },
+      "id": "Id",
+      "adresse": "Adresse",
+      "benef2019": "Benef 2019",
+      "benef2020": "Benef 2020",
+      "cin": "Cin",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateNaissance": "Date Naissance",
+      "email": "Email",
+      "etat": "Etat",
+      "explicationRefus": "Explication Refus",
+      "nbrEnfants": "Nbr Enfants",
+      "niveauScolarite": "Niveau Scolarite",
+      "nom": "Nom",
+      "nomFr": "Nom Fr",
+      "numeroDossier": "Numero Dossier",
+      "prenom": "Prenom",
+      "prenomFr": "Prenom Fr",
+      "profession": "Profession",
+      "selectionner": "Selectionner",
+      "sexe": "Sexe",
+      "telephone": "Telephone",
+      "lieuTravailProfessionnel": "Lieu Travail Professionnel",
+      "specialiteProfessionnel": "Specialite Professionnel",
+      "appUser": "App User",
+      "enfant": "Enfant",
+      "motifRefus": "Motif Refus",
+      "province": "Province"
+    }
+  }
+}

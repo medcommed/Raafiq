@@ -1,0 +1,232 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-enfant-heading" data-cy="EnfantCreateUpdateHeading" jhiTranslate="raafiqApp.enfant.home.createOrEditLabel">
+        Create or edit a Enfant
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('id')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.dateDiagnostic" for="field_dateDiagnostic">Date Diagnostic</label>
+          <div class="input-group">
+            <input
+              id="field_dateDiagnostic"
+              data-cy="dateDiagnostic"
+              type="text"
+              class="form-control"
+              name="dateDiagnostic"
+              ngbDatepicker
+              #dateDiagnosticDp="ngbDatepicker"
+              formControlName="dateDiagnostic"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateDiagnosticDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+          <div class="input-group">
+            <input
+              id="field_dateNaissance"
+              data-cy="dateNaissance"
+              type="text"
+              class="form-control"
+              name="dateNaissance"
+              ngbDatepicker
+              #dateNaissanceDp="ngbDatepicker"
+              formControlName="dateNaissance"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.degreAutisme" for="field_degreAutisme">Degre Autisme</label>
+          <input
+            type="number"
+            class="form-control"
+            name="degreAutisme"
+            id="field_degreAutisme"
+            data-cy="degreAutisme"
+            formControlName="degreAutisme"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.mutualiste" for="field_mutualiste">Mutualiste</label>
+          <input
+            type="number"
+            class="form-control"
+            name="mutualiste"
+            id="field_mutualiste"
+            data-cy="mutualiste"
+            formControlName="mutualiste"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nom')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.nomFr" for="field_nomFr">Nom Fr</label>
+          <input type="text" class="form-control" name="nomFr" id="field_nomFr" data-cy="nomFr" formControlName="nomFr" />
+          <div *ngIf="editForm.get('nomFr')!.invalid && (editForm.get('nomFr')!.dirty || editForm.get('nomFr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nomFr')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.nomMedecin" for="field_nomMedecin">Nom Medecin</label>
+          <input
+            type="text"
+            class="form-control"
+            name="nomMedecin"
+            id="field_nomMedecin"
+            data-cy="nomMedecin"
+            formControlName="nomMedecin"
+          />
+          <div *ngIf="editForm.get('nomMedecin')!.invalid && (editForm.get('nomMedecin')!.dirty || editForm.get('nomMedecin')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nomMedecin')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.prenom" for="field_prenom">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="field_prenom" data-cy="prenom" formControlName="prenom" />
+          <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('prenom')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.prenomfr" for="field_prenomfr">Prenomfr</label>
+          <input type="text" class="form-control" name="prenomfr" id="field_prenomfr" data-cy="prenomfr" formControlName="prenomfr" />
+          <div *ngIf="editForm.get('prenomfr')!.invalid && (editForm.get('prenomfr')!.dirty || editForm.get('prenomfr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('prenomfr')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.scolariser" for="field_scolariser">Scolariser</label>
+          <input
+            type="number"
+            class="form-control"
+            name="scolariser"
+            id="field_scolariser"
+            data-cy="scolariser"
+            formControlName="scolariser"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.sexe" for="field_sexe">Sexe</label>
+          <input type="number" class="form-control" name="sexe" id="field_sexe" data-cy="sexe" formControlName="sexe" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.enfant.specialiteMedecin" for="field_specialiteMedecin"
+            >Specialite Medecin</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="specialiteMedecin"
+            id="field_specialiteMedecin"
+            data-cy="specialiteMedecin"
+            formControlName="specialiteMedecin"
+          />
+          <div
+            *ngIf="
+              editForm.get('specialiteMedecin')!.invalid &&
+              (editForm.get('specialiteMedecin')!.dirty || editForm.get('specialiteMedecin')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('specialiteMedecin')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

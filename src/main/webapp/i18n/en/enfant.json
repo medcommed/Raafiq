@@ -1,0 +1,38 @@
+{
+  "raafiqApp": {
+    "enfant": {
+      "home": {
+        "title": "Enfants",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Enfant",
+        "createOrEditLabel": "Create or edit a Enfant",
+        "notFound": "No Enfants found"
+      },
+      "created": "A new Enfant is created with identifier {{ param }}",
+      "updated": "A Enfant is updated with identifier {{ param }}",
+      "deleted": "A Enfant is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Enfant {{ id }}?"
+      },
+      "detail": {
+        "title": "Enfant"
+      },
+      "id": "Id",
+      "dateDiagnostic": "Date Diagnostic",
+      "dateNaissance": "Date Naissance",
+      "degreAutisme": "Degre Autisme",
+      "mutualiste": "Mutualiste",
+      "nom": "Nom",
+      "nomFr": "Nom Fr",
+      "nomMedecin": "Nom Medecin",
+      "prenom": "Prenom",
+      "prenomfr": "Prenomfr",
+      "scolariser": "Scolariser",
+      "sexe": "Sexe",
+      "specialiteMedecin": "Specialite Medecin",
+      "beneficiaire": "Beneficiaire",
+      "famille": "Famille",
+      "professionnel": "Professionnel"
+    }
+  }
+}

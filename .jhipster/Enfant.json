@@ -1,0 +1,100 @@
+{
+  "applications": "*",
+  "changelogDate": "20220323114507",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "enfant",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "dateDiagnostic",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "dateNaissance",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "degreAutisme",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "mutualiste",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "nom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "nomFr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "nomMedecin",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "prenom",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "prenomfr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "scolariser",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "sexe",
+      "fieldType": "Integer"
+    },
+    {
+      "fieldName": "specialiteMedecin",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Enfant",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "beneficiaire",
+      "otherEntityRelationshipName": "enfant",
+      "relationshipName": "beneficiaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "famille",
+      "otherEntityRelationshipName": "enfant",
+      "relationshipName": "famille",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "professionnel",
+      "otherEntityRelationshipName": "enfant",
+      "relationshipName": "professionnel",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

@@ -1,0 +1,144 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="professionnel">
+      <h2 data-cy="professionnelDetailsHeading"><span jhiTranslate="raafiqApp.professionnel.detail.title">Professionnel</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.professionnel.id">Id</span></dt>
+        <dd>
+          <span>{{ professionnel.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ professionnel.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.benef2019">Benef 2019</span></dt>
+        <dd>
+          <span>{{ professionnel.benef2019 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.benef2020">Benef 2020</span></dt>
+        <dd>
+          <span>{{ professionnel.benef2020 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.cin">Cin</span></dt>
+        <dd>
+          <span>{{ professionnel.cin }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ professionnel.dateCreation | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ professionnel.dateModification | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ professionnel.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.email">Email</span></dt>
+        <dd>
+          <span>{{ professionnel.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.etat">Etat</span></dt>
+        <dd>
+          <span>{{ professionnel.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.explicationRefus">Explication Refus</span></dt>
+        <dd>
+          <span>{{ professionnel.explicationRefus }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.nbrEnfants">Nbr Enfants</span></dt>
+        <dd>
+          <span>{{ professionnel.nbrEnfants }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.niveauScolarite">Niveau Scolarite</span></dt>
+        <dd>
+          <span>{{ professionnel.niveauScolarite }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.nom">Nom</span></dt>
+        <dd>
+          <span>{{ professionnel.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.nomFr">Nom Fr</span></dt>
+        <dd>
+          <span>{{ professionnel.nomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.numeroDossier">Numero Dossier</span></dt>
+        <dd>
+          <span>{{ professionnel.numeroDossier }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ professionnel.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.prenomFr">Prenom Fr</span></dt>
+        <dd>
+          <span>{{ professionnel.prenomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.profession">Profession</span></dt>
+        <dd>
+          <span>{{ professionnel.profession }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.selectionner">Selectionner</span></dt>
+        <dd>
+          <span>{{ professionnel.selectionner }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.sexe">Sexe</span></dt>
+        <dd>
+          <span>{{ professionnel.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ professionnel.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.lieuTravailProfessionnel">Lieu Travail Professionnel</span></dt>
+        <dd>
+          <span>{{ professionnel.lieuTravailProfessionnel }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.specialiteProfessionnel">Specialite Professionnel</span></dt>
+        <dd>
+          <span>{{ professionnel.specialiteProfessionnel }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.appUser">App User</span></dt>
+        <dd>
+          <div *ngIf="professionnel.appUser">
+            <a [routerLink]="['/app-user', professionnel.appUser?.id, 'view']">{{ professionnel.appUser?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.enfant">Enfant</span></dt>
+        <dd>
+          <div *ngIf="professionnel.enfant">
+            <a [routerLink]="['/enfant', professionnel.enfant?.id, 'view']">{{ professionnel.enfant?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.motifRefus">Motif Refus</span></dt>
+        <dd>
+          <div *ngIf="professionnel.motifRefus">
+            <a [routerLink]="['/motif-refus', professionnel.motifRefus?.id, 'view']">{{ professionnel.motifRefus?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.professionnel.province">Province</span></dt>
+        <dd>
+          <div *ngIf="professionnel.province">
+            <a [routerLink]="['/province', professionnel.province?.id, 'view']">{{ professionnel.province?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/professionnel', professionnel.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

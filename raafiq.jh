@@ -1,0 +1,211 @@
+entity AppRole {
+	id Long required,
+	libeleAr String maxlength(255),
+	libeleFr String maxlength(255)
+}
+
+entity AppUser {
+	id Long required,
+	active Boolean required,
+	dateCreation Instant,
+	dateModification Instant,
+	email String required unique maxlength(255),
+	entite String maxlength(255),
+	nom String maxlength(255),
+	password String required maxlength(255),
+	prenom String maxlength(255),
+	telephone String maxlength(255),
+	userName String required unique maxlength(255)
+}
+
+entity Beneficiaire {
+	typeBeneficiare String required maxlength(3),
+	id Long required,
+	adresse String maxlength(255),
+	benef2019 Integer,
+	benef2020 Integer,
+	cin String required unique maxlength(255),
+	dateCreation Instant,
+	dateModification Instant,
+	dateNaissance LocalDate,
+	email String required unique maxlength(255),
+	etat Integer,
+	explicationRefus String maxlength(255),
+	nbrEnfants Integer required,
+	niveauScolarite Integer,
+	nom String maxlength(255),
+	nomFr String maxlength(255),
+	numeroDossier String required unique maxlength(255),
+	prenom String maxlength(255),
+	prenomFr String maxlength(255),
+	profession String maxlength(255),
+	selectionner Integer,
+	sexe Integer,
+	telephone String maxlength(255),
+	autreBenef2019 Integer,
+	autreBenef2020 Integer,
+	relationFamiliale Integer,
+	lieuTravailProfessionnel String maxlength(255),
+	specialiteProfessionnel Integer
+}
+
+entity Enfant {
+	id Long required,
+	dateDiagnostic LocalDate,
+	dateNaissance LocalDate,
+	degreAutisme Integer,
+	mutualiste Integer,
+	nom String maxlength(255),
+	nomFr String maxlength(255),
+	nomMedecin String maxlength(255),
+	prenom String maxlength(255),
+	prenomfr String maxlength(255),
+	scolariser Integer,
+	sexe Integer,
+	specialiteMedecin String maxlength(255)
+}
+
+entity Famille {
+	id Long required,
+	adresse String maxlength(255),
+	benef2019 Integer,
+	benef2020 Integer,
+	cin String required unique maxlength(255),
+	dateCreation Instant,
+	dateModification Instant,
+	dateNaissance LocalDate,
+	email String required unique maxlength(255),
+	etat Integer,
+	explicationRefus String maxlength(255),
+	nbrEnfants Integer required,
+	niveauScolarite Integer,
+	nom String maxlength(255),
+	nomFr String maxlength(255),
+	numeroDossier String required unique maxlength(255),
+	prenom String maxlength(255),
+	prenomFr String maxlength(255),
+	profession String maxlength(255),
+	selectionner Integer,
+	sexe Integer,
+	telephone String maxlength(255),
+	autreBenef2019 Integer,
+	autreBenef2020 Integer,
+	relationFamiliale Integer
+}
+
+entity MotifRefus {
+	id Long required,
+	libeleAr String maxlength(255),
+	libeleFr String maxlength(255)
+}
+
+entity Professionnel {
+	id Long required,
+	adresse String maxlength(255),
+	benef2019 Integer,
+	benef2020 Integer,
+	cin String required unique maxlength(255),
+	dateCreation Instant,
+	dateModification Instant,
+	dateNaissance LocalDate,
+	email String required unique maxlength(255),
+	etat Integer,
+	explicationRefus String maxlength(255),
+	nbrEnfants Integer required,
+	niveauScolarite Integer,
+	nom String maxlength(255),
+	nomFr String maxlength(255),
+	numeroDossier String required unique maxlength(255),
+	prenom String maxlength(255),
+	prenomFr String maxlength(255),
+	profession String maxlength(255),
+	selectionner Integer,
+	sexe Integer,
+	telephone String maxlength(255),
+	lieuTravailProfessionnel String maxlength(255),
+	specialiteProfessionnel Integer
+}
+
+entity Province {
+	id Long required,
+	libeleAr String maxlength(255),
+	libeleFr String maxlength(255)
+}
+
+entity Region {
+	id Long required,
+	libeleAr String maxlength(255),
+	libeleFr String maxlength(255)
+}
+
+
+
+// Relations
+relationship ManyToOne {
+	AppUser{appRole} to AppRole{appUser}
+}
+
+relationship ManyToOne {
+	AppUser{province} to Province{appUser}
+}
+
+relationship ManyToOne {
+	Beneficiaire{appUser} to AppUser{beneficiaire}
+}
+
+relationship ManyToOne {
+	Beneficiaire{enfant} to Enfant{beneficiaire}
+}
+
+relationship ManyToOne {
+	Beneficiaire{motifRefus} to MotifRefus{beneficiaire}
+}
+
+relationship ManyToOne {
+	Beneficiaire{province} to Province{beneficiaire}
+}
+
+relationship ManyToOne {
+	Famille{appUser} to AppUser{famille}
+}
+
+relationship ManyToOne {
+	Famille{enfant} to Enfant{famille}
+}
+
+relationship ManyToOne {
+	Famille{motifRefus} to MotifRefus{famille}
+}
+
+relationship ManyToOne {
+	Famille{province} to Province{famille}
+}
+
+relationship ManyToOne {
+	Professionnel{appUser} to AppUser{professionnel}
+}
+
+relationship ManyToOne {
+	Professionnel{enfant} to Enfant{professionnel}
+}
+
+relationship ManyToOne {
+	Professionnel{motifRefus} to MotifRefus{professionnel}
+}
+
+relationship ManyToOne {
+	Professionnel{province} to Province{professionnel}
+}
+
+relationship ManyToOne {
+	Province{region} to Region{province}
+}
+
+
+
+// Options
+service * with serviceClass
+paginate * with pagination
+dto * with mapstruct
+filter *
+

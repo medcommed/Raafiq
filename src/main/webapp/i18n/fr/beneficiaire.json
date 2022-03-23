@@ -1,0 +1,54 @@
+{
+  "raafiqApp": {
+    "beneficiaire": {
+      "home": {
+        "title": "Beneficiaires",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Beneficiaire",
+        "createOrEditLabel": "Créer ou éditer un Beneficiaire",
+        "notFound": "Aucun Beneficiaire trouvé"
+      },
+      "created": "Un nouveau Beneficiaire a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Beneficiaire avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Beneficiaire avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le Beneficiaire {{ id }} ?"
+      },
+      "detail": {
+        "title": "Beneficiaire"
+      },
+      "typeBeneficiare": "Type Beneficiare",
+      "id": "Id",
+      "adresse": "Adresse",
+      "benef2019": "Benef 2019",
+      "benef2020": "Benef 2020",
+      "cin": "Cin",
+      "dateCreation": "Date Creation",
+      "dateModification": "Date Modification",
+      "dateNaissance": "Date Naissance",
+      "email": "Email",
+      "etat": "Etat",
+      "explicationRefus": "Explication Refus",
+      "nbrEnfants": "Nbr Enfants",
+      "niveauScolarite": "Niveau Scolarite",
+      "nom": "Nom",
+      "nomFr": "Nom Fr",
+      "numeroDossier": "Numero Dossier",
+      "prenom": "Prenom",
+      "prenomFr": "Prenom Fr",
+      "profession": "Profession",
+      "selectionner": "Selectionner",
+      "sexe": "Sexe",
+      "telephone": "Telephone",
+      "autreBenef2019": "Autre Benef 2019",
+      "autreBenef2020": "Autre Benef 2020",
+      "relationFamiliale": "Relation Familiale",
+      "lieuTravailProfessionnel": "Lieu Travail Professionnel",
+      "specialiteProfessionnel": "Specialite Professionnel",
+      "appUser": "App User",
+      "enfant": "Enfant",
+      "motifRefus": "Motif Refus",
+      "province": "Province"
+    }
+  }
+}

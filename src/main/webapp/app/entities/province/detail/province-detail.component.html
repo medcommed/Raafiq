@@ -1,0 +1,42 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="province">
+      <h2 data-cy="provinceDetailsHeading"><span jhiTranslate="raafiqApp.province.detail.title">Province</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.province.id">Id</span></dt>
+        <dd>
+          <span>{{ province.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.province.libeleAr">Libele Ar</span></dt>
+        <dd>
+          <span>{{ province.libeleAr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.province.libeleFr">Libele Fr</span></dt>
+        <dd>
+          <span>{{ province.libeleFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.province.region">Region</span></dt>
+        <dd>
+          <div *ngIf="province.region">
+            <a [routerLink]="['/region', province.region?.id, 'view']">{{ province.region?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/province', province.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>
