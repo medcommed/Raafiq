@@ -1,0 +1,160 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="beneficiaire">
+      <h2 data-cy="beneficiaireDetailsHeading"><span jhiTranslate="raafiqApp.beneficiaire.detail.title">Beneficiaire</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.typeBeneficiare">Type Beneficiare</span></dt>
+        <dd>
+          <span>{{ beneficiaire.typeBeneficiare }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.id">Id</span></dt>
+        <dd>
+          <span>{{ beneficiaire.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ beneficiaire.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.benef2019">Benef 2019</span></dt>
+        <dd>
+          <span>{{ beneficiaire.benef2019 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.benef2020">Benef 2020</span></dt>
+        <dd>
+          <span>{{ beneficiaire.benef2020 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.cin">Cin</span></dt>
+        <dd>
+          <span>{{ beneficiaire.cin }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ beneficiaire.dateCreation | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ beneficiaire.dateModification | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ beneficiaire.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.email">Email</span></dt>
+        <dd>
+          <span>{{ beneficiaire.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.etat">Etat</span></dt>
+        <dd>
+          <span>{{ beneficiaire.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.explicationRefus">Explication Refus</span></dt>
+        <dd>
+          <span>{{ beneficiaire.explicationRefus }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.nbrEnfants">Nbr Enfants</span></dt>
+        <dd>
+          <span>{{ beneficiaire.nbrEnfants }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.niveauScolarite">Niveau Scolarite</span></dt>
+        <dd>
+          <span>{{ beneficiaire.niveauScolarite }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.nom">Nom</span></dt>
+        <dd>
+          <span>{{ beneficiaire.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.nomFr">Nom Fr</span></dt>
+        <dd>
+          <span>{{ beneficiaire.nomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.numeroDossier">Numero Dossier</span></dt>
+        <dd>
+          <span>{{ beneficiaire.numeroDossier }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ beneficiaire.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.prenomFr">Prenom Fr</span></dt>
+        <dd>
+          <span>{{ beneficiaire.prenomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.profession">Profession</span></dt>
+        <dd>
+          <span>{{ beneficiaire.profession }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.selectionner">Selectionner</span></dt>
+        <dd>
+          <span>{{ beneficiaire.selectionner }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.sexe">Sexe</span></dt>
+        <dd>
+          <span>{{ beneficiaire.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ beneficiaire.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.autreBenef2019">Autre Benef 2019</span></dt>
+        <dd>
+          <span>{{ beneficiaire.autreBenef2019 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.autreBenef2020">Autre Benef 2020</span></dt>
+        <dd>
+          <span>{{ beneficiaire.autreBenef2020 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.relationFamiliale">Relation Familiale</span></dt>
+        <dd>
+          <span>{{ beneficiaire.relationFamiliale }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.lieuTravailProfessionnel">Lieu Travail Professionnel</span></dt>
+        <dd>
+          <span>{{ beneficiaire.lieuTravailProfessionnel }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.specialiteProfessionnel">Specialite Professionnel</span></dt>
+        <dd>
+          <span>{{ beneficiaire.specialiteProfessionnel }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.appUser">App User</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.appUser">
+            <a [routerLink]="['/app-user', beneficiaire.appUser?.id, 'view']">{{ beneficiaire.appUser?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.enfant">Enfant</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.enfant">
+            <a [routerLink]="['/enfant', beneficiaire.enfant?.id, 'view']">{{ beneficiaire.enfant?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.motifRefus">Motif Refus</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.motifRefus">
+            <a [routerLink]="['/motif-refus', beneficiaire.motifRefus?.id, 'view']">{{ beneficiaire.motifRefus?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.beneficiaire.province">Province</span></dt>
+        <dd>
+          <div *ngIf="beneficiaire.province">
+            <a [routerLink]="['/province', beneficiaire.province?.id, 'view']">{{ beneficiaire.province?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/beneficiaire', beneficiaire.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,210 @@
+<div>
+  <h2 id="page-heading" data-cy="FamilleHeading">
+    <span jhiTranslate="raafiqApp.famille.home.title">Familles</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadPage()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="raafiqApp.famille.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-famille"
+        [routerLink]="['/famille/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="raafiqApp.famille.home.createLabel"> Create a new Famille </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="familles?.length === 0">
+    <span jhiTranslate="raafiqApp.famille.home.notFound">No familles found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="familles && familles.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr jhiSort [(predicate)]="predicate" [(ascending)]="ascending" (sortChange)="loadPage()">
+          <th scope="col" jhiSortBy="id"><span jhiTranslate="raafiqApp.famille.id">Id</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="adresse">
+            <span jhiTranslate="raafiqApp.famille.adresse">Adresse</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="benef2019">
+            <span jhiTranslate="raafiqApp.famille.benef2019">Benef 2019</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="benef2020">
+            <span jhiTranslate="raafiqApp.famille.benef2020">Benef 2020</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="cin"><span jhiTranslate="raafiqApp.famille.cin">Cin</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="dateCreation">
+            <span jhiTranslate="raafiqApp.famille.dateCreation">Date Creation</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateModification">
+            <span jhiTranslate="raafiqApp.famille.dateModification">Date Modification</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="dateNaissance">
+            <span jhiTranslate="raafiqApp.famille.dateNaissance">Date Naissance</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="email"><span jhiTranslate="raafiqApp.famille.email">Email</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="etat"><span jhiTranslate="raafiqApp.famille.etat">Etat</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="explicationRefus">
+            <span jhiTranslate="raafiqApp.famille.explicationRefus">Explication Refus</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nbrEnfants">
+            <span jhiTranslate="raafiqApp.famille.nbrEnfants">Nbr Enfants</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="niveauScolarite">
+            <span jhiTranslate="raafiqApp.famille.niveauScolarite">Niveau Scolarite</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="nom"><span jhiTranslate="raafiqApp.famille.nom">Nom</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="nomFr"><span jhiTranslate="raafiqApp.famille.nomFr">Nom Fr</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="numeroDossier">
+            <span jhiTranslate="raafiqApp.famille.numeroDossier">Numero Dossier</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prenom">
+            <span jhiTranslate="raafiqApp.famille.prenom">Prenom</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="prenomFr">
+            <span jhiTranslate="raafiqApp.famille.prenomFr">Prenom Fr</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="profession">
+            <span jhiTranslate="raafiqApp.famille.profession">Profession</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="selectionner">
+            <span jhiTranslate="raafiqApp.famille.selectionner">Selectionner</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="sexe"><span jhiTranslate="raafiqApp.famille.sexe">Sexe</span> <fa-icon icon="sort"></fa-icon></th>
+          <th scope="col" jhiSortBy="telephone">
+            <span jhiTranslate="raafiqApp.famille.telephone">Telephone</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="autreBenef2019">
+            <span jhiTranslate="raafiqApp.famille.autreBenef2019">Autre Benef 2019</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="autreBenef2020">
+            <span jhiTranslate="raafiqApp.famille.autreBenef2020">Autre Benef 2020</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="relationFamiliale">
+            <span jhiTranslate="raafiqApp.famille.relationFamiliale">Relation Familiale</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="appUser.id">
+            <span jhiTranslate="raafiqApp.famille.appUser">App User</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="enfant.id">
+            <span jhiTranslate="raafiqApp.famille.enfant">Enfant</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="motifRefus.id">
+            <span jhiTranslate="raafiqApp.famille.motifRefus">Motif Refus</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col" jhiSortBy="province.id">
+            <span jhiTranslate="raafiqApp.famille.province">Province</span> <fa-icon icon="sort"></fa-icon>
+          </th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let famille of familles; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/famille', famille.id, 'view']">{{ famille.id }}</a>
+          </td>
+          <td>{{ famille.adresse }}</td>
+          <td>{{ famille.benef2019 }}</td>
+          <td>{{ famille.benef2020 }}</td>
+          <td>{{ famille.cin }}</td>
+          <td>{{ famille.dateCreation | formatMediumDatetime }}</td>
+          <td>{{ famille.dateModification | formatMediumDatetime }}</td>
+          <td>{{ famille.dateNaissance | formatMediumDate }}</td>
+          <td>{{ famille.email }}</td>
+          <td>{{ famille.etat }}</td>
+          <td>{{ famille.explicationRefus }}</td>
+          <td>{{ famille.nbrEnfants }}</td>
+          <td>{{ famille.niveauScolarite }}</td>
+          <td>{{ famille.nom }}</td>
+          <td>{{ famille.nomFr }}</td>
+          <td>{{ famille.numeroDossier }}</td>
+          <td>{{ famille.prenom }}</td>
+          <td>{{ famille.prenomFr }}</td>
+          <td>{{ famille.profession }}</td>
+          <td>{{ famille.selectionner }}</td>
+          <td>{{ famille.sexe }}</td>
+          <td>{{ famille.telephone }}</td>
+          <td>{{ famille.autreBenef2019 }}</td>
+          <td>{{ famille.autreBenef2020 }}</td>
+          <td>{{ famille.relationFamiliale }}</td>
+          <td>
+            <div *ngIf="famille.appUser">
+              <a [routerLink]="['/app-user', famille.appUser?.id, 'view']">{{ famille.appUser?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="famille.enfant">
+              <a [routerLink]="['/enfant', famille.enfant?.id, 'view']">{{ famille.enfant?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="famille.motifRefus">
+              <a [routerLink]="['/motif-refus', famille.motifRefus?.id, 'view']">{{ famille.motifRefus?.id }}</a>
+            </div>
+          </td>
+          <td>
+            <div *ngIf="famille.province">
+              <a [routerLink]="['/province', famille.province?.id, 'view']">{{ famille.province?.id }}</a>
+            </div>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/famille', famille.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/famille', famille.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(famille)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div *ngIf="familles && familles.length > 0">
+    <div class="d-flex justify-content-center">
+      <jhi-item-count [params]="{ page: page, totalItems: totalItems, itemsPerPage: itemsPerPage }"></jhi-item-count>
+    </div>
+
+    <div class="d-flex justify-content-center">
+      <ngb-pagination
+        [collectionSize]="totalItems"
+        [(page)]="ngbPaginationPage"
+        [pageSize]="itemsPerPage"
+        [maxSize]="5"
+        [rotate]="true"
+        [boundaryLinks]="true"
+        (pageChange)="loadPage($event)"
+      ></ngb-pagination>
+    </div>
+  </div>
+</div>

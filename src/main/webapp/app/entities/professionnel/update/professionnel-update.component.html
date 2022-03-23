@@ -1,0 +1,478 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-professionnel-heading"
+        data-cy="ProfessionnelCreateUpdateHeading"
+        jhiTranslate="raafiqApp.professionnel.home.createOrEditLabel"
+      >
+        Create or edit a Professionnel
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.id" for="field_id">Id</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          <div *ngIf="editForm.get('id')!.invalid && (editForm.get('id')!.dirty || editForm.get('id')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('id')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small class="form-text text-danger" [hidden]="!editForm.get('id')?.errors?.number" jhiTranslate="entity.validation.number">
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.adresse" for="field_adresse">Adresse</label>
+          <input type="text" class="form-control" name="adresse" id="field_adresse" data-cy="adresse" formControlName="adresse" />
+          <div *ngIf="editForm.get('adresse')!.invalid && (editForm.get('adresse')!.dirty || editForm.get('adresse')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('adresse')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.benef2019" for="field_benef2019">Benef 2019</label>
+          <input type="number" class="form-control" name="benef2019" id="field_benef2019" data-cy="benef2019" formControlName="benef2019" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.benef2020" for="field_benef2020">Benef 2020</label>
+          <input type="number" class="form-control" name="benef2020" id="field_benef2020" data-cy="benef2020" formControlName="benef2020" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.cin" for="field_cin">Cin</label>
+          <input type="text" class="form-control" name="cin" id="field_cin" data-cy="cin" formControlName="cin" />
+          <div *ngIf="editForm.get('cin')!.invalid && (editForm.get('cin')!.dirty || editForm.get('cin')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('cin')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('cin')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.dateCreation" for="field_dateCreation">Date Creation</label>
+          <div class="d-flex">
+            <input
+              id="field_dateCreation"
+              data-cy="dateCreation"
+              type="datetime-local"
+              class="form-control"
+              name="dateCreation"
+              formControlName="dateCreation"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.dateModification" for="field_dateModification"
+            >Date Modification</label
+          >
+          <div class="d-flex">
+            <input
+              id="field_dateModification"
+              data-cy="dateModification"
+              type="datetime-local"
+              class="form-control"
+              name="dateModification"
+              formControlName="dateModification"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.dateNaissance" for="field_dateNaissance">Date Naissance</label>
+          <div class="input-group">
+            <input
+              id="field_dateNaissance"
+              data-cy="dateNaissance"
+              type="text"
+              class="form-control"
+              name="dateNaissance"
+              ngbDatepicker
+              #dateNaissanceDp="ngbDatepicker"
+              formControlName="dateNaissance"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dateNaissanceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.email" for="field_email">Email</label>
+          <input type="text" class="form-control" name="email" id="field_email" data-cy="email" formControlName="email" />
+          <div *ngIf="editForm.get('email')!.invalid && (editForm.get('email')!.dirty || editForm.get('email')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('email')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('email')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.etat" for="field_etat">Etat</label>
+          <input type="number" class="form-control" name="etat" id="field_etat" data-cy="etat" formControlName="etat" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.explicationRefus" for="field_explicationRefus"
+            >Explication Refus</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="explicationRefus"
+            id="field_explicationRefus"
+            data-cy="explicationRefus"
+            formControlName="explicationRefus"
+          />
+          <div
+            *ngIf="
+              editForm.get('explicationRefus')!.invalid &&
+              (editForm.get('explicationRefus')!.dirty || editForm.get('explicationRefus')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('explicationRefus')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.nbrEnfants" for="field_nbrEnfants">Nbr Enfants</label>
+          <input
+            type="number"
+            class="form-control"
+            name="nbrEnfants"
+            id="field_nbrEnfants"
+            data-cy="nbrEnfants"
+            formControlName="nbrEnfants"
+          />
+          <div *ngIf="editForm.get('nbrEnfants')!.invalid && (editForm.get('nbrEnfants')!.dirty || editForm.get('nbrEnfants')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nbrEnfants')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              [hidden]="!editForm.get('nbrEnfants')?.errors?.number"
+              jhiTranslate="entity.validation.number"
+            >
+              This field should be a number.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.niveauScolarite" for="field_niveauScolarite"
+            >Niveau Scolarite</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="niveauScolarite"
+            id="field_niveauScolarite"
+            data-cy="niveauScolarite"
+            formControlName="niveauScolarite"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.nom" for="field_nom">Nom</label>
+          <input type="text" class="form-control" name="nom" id="field_nom" data-cy="nom" formControlName="nom" />
+          <div *ngIf="editForm.get('nom')!.invalid && (editForm.get('nom')!.dirty || editForm.get('nom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nom')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.nomFr" for="field_nomFr">Nom Fr</label>
+          <input type="text" class="form-control" name="nomFr" id="field_nomFr" data-cy="nomFr" formControlName="nomFr" />
+          <div *ngIf="editForm.get('nomFr')!.invalid && (editForm.get('nomFr')!.dirty || editForm.get('nomFr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('nomFr')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.numeroDossier" for="field_numeroDossier">Numero Dossier</label>
+          <input
+            type="text"
+            class="form-control"
+            name="numeroDossier"
+            id="field_numeroDossier"
+            data-cy="numeroDossier"
+            formControlName="numeroDossier"
+          />
+          <div
+            *ngIf="
+              editForm.get('numeroDossier')!.invalid && (editForm.get('numeroDossier')!.dirty || editForm.get('numeroDossier')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numeroDossier')?.errors?.required"
+              jhiTranslate="entity.validation.required"
+            >
+              This field is required.
+            </small>
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('numeroDossier')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.prenom" for="field_prenom">Prenom</label>
+          <input type="text" class="form-control" name="prenom" id="field_prenom" data-cy="prenom" formControlName="prenom" />
+          <div *ngIf="editForm.get('prenom')!.invalid && (editForm.get('prenom')!.dirty || editForm.get('prenom')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('prenom')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.prenomFr" for="field_prenomFr">Prenom Fr</label>
+          <input type="text" class="form-control" name="prenomFr" id="field_prenomFr" data-cy="prenomFr" formControlName="prenomFr" />
+          <div *ngIf="editForm.get('prenomFr')!.invalid && (editForm.get('prenomFr')!.dirty || editForm.get('prenomFr')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('prenomFr')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.profession" for="field_profession">Profession</label>
+          <input
+            type="text"
+            class="form-control"
+            name="profession"
+            id="field_profession"
+            data-cy="profession"
+            formControlName="profession"
+          />
+          <div *ngIf="editForm.get('profession')!.invalid && (editForm.get('profession')!.dirty || editForm.get('profession')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('profession')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.selectionner" for="field_selectionner">Selectionner</label>
+          <input
+            type="number"
+            class="form-control"
+            name="selectionner"
+            id="field_selectionner"
+            data-cy="selectionner"
+            formControlName="selectionner"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.sexe" for="field_sexe">Sexe</label>
+          <input type="number" class="form-control" name="sexe" id="field_sexe" data-cy="sexe" formControlName="sexe" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.telephone" for="field_telephone">Telephone</label>
+          <input type="text" class="form-control" name="telephone" id="field_telephone" data-cy="telephone" formControlName="telephone" />
+          <div *ngIf="editForm.get('telephone')!.invalid && (editForm.get('telephone')!.dirty || editForm.get('telephone')!.touched)">
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('telephone')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.lieuTravailProfessionnel" for="field_lieuTravailProfessionnel"
+            >Lieu Travail Professionnel</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="lieuTravailProfessionnel"
+            id="field_lieuTravailProfessionnel"
+            data-cy="lieuTravailProfessionnel"
+            formControlName="lieuTravailProfessionnel"
+          />
+          <div
+            *ngIf="
+              editForm.get('lieuTravailProfessionnel')!.invalid &&
+              (editForm.get('lieuTravailProfessionnel')!.dirty || editForm.get('lieuTravailProfessionnel')!.touched)
+            "
+          >
+            <small
+              class="form-text text-danger"
+              *ngIf="editForm.get('lieuTravailProfessionnel')?.errors?.maxlength"
+              jhiTranslate="entity.validation.maxlength"
+              [translateValues]="{ max: 255 }"
+            >
+              This field cannot be longer than 255 characters.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.specialiteProfessionnel" for="field_specialiteProfessionnel"
+            >Specialite Professionnel</label
+          >
+          <input
+            type="number"
+            class="form-control"
+            name="specialiteProfessionnel"
+            id="field_specialiteProfessionnel"
+            data-cy="specialiteProfessionnel"
+            formControlName="specialiteProfessionnel"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.appUser" for="field_appUser">App User</label>
+          <select class="form-control" id="field_appUser" data-cy="appUser" name="appUser" formControlName="appUser">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="appUserOption.id === editForm.get('appUser')!.value?.id ? editForm.get('appUser')!.value : appUserOption"
+              *ngFor="let appUserOption of appUsersSharedCollection; trackBy: trackAppUserById"
+            >
+              {{ appUserOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.enfant" for="field_enfant">Enfant</label>
+          <select class="form-control" id="field_enfant" data-cy="enfant" name="enfant" formControlName="enfant">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="enfantOption.id === editForm.get('enfant')!.value?.id ? editForm.get('enfant')!.value : enfantOption"
+              *ngFor="let enfantOption of enfantsSharedCollection; trackBy: trackEnfantById"
+            >
+              {{ enfantOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.motifRefus" for="field_motifRefus">Motif Refus</label>
+          <select class="form-control" id="field_motifRefus" data-cy="motifRefus" name="motifRefus" formControlName="motifRefus">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="
+                motifRefusOption.id === editForm.get('motifRefus')!.value?.id ? editForm.get('motifRefus')!.value : motifRefusOption
+              "
+              *ngFor="let motifRefusOption of motifRefusesSharedCollection; trackBy: trackMotifRefusById"
+            >
+              {{ motifRefusOption.id }}
+            </option>
+          </select>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="raafiqApp.professionnel.province" for="field_province">Province</label>
+          <select class="form-control" id="field_province" data-cy="province" name="province" formControlName="province">
+            <option [ngValue]="null"></option>
+            <option
+              [ngValue]="provinceOption.id === editForm.get('province')!.value?.id ? editForm.get('province')!.value : provinceOption"
+              *ngFor="let provinceOption of provincesSharedCollection; trackBy: trackProvinceById"
+            >
+              {{ provinceOption.id }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

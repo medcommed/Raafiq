@@ -1,0 +1,80 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="appUser">
+      <h2 data-cy="appUserDetailsHeading"><span jhiTranslate="raafiqApp.appUser.detail.title">App User</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.appUser.id">Id</span></dt>
+        <dd>
+          <span>{{ appUser.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.active">Active</span></dt>
+        <dd>
+          <span>{{ appUser.active }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ appUser.dateCreation | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ appUser.dateModification | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.email">Email</span></dt>
+        <dd>
+          <span>{{ appUser.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.entite">Entite</span></dt>
+        <dd>
+          <span>{{ appUser.entite }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.nom">Nom</span></dt>
+        <dd>
+          <span>{{ appUser.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.password">Password</span></dt>
+        <dd>
+          <span>{{ appUser.password }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ appUser.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ appUser.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.userName">User Name</span></dt>
+        <dd>
+          <span>{{ appUser.userName }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.appRole">App Role</span></dt>
+        <dd>
+          <div *ngIf="appUser.appRole">
+            <a [routerLink]="['/app-role', appUser.appRole?.id, 'view']">{{ appUser.appRole?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.appUser.province">Province</span></dt>
+        <dd>
+          <div *ngIf="appUser.province">
+            <a [routerLink]="['/province', appUser.province?.id, 'view']">{{ appUser.province?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/app-user', appUser.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

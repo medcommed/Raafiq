@@ -1,0 +1,36 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="motifRefus">
+      <h2 data-cy="motifRefusDetailsHeading"><span jhiTranslate="raafiqApp.motifRefus.detail.title">Motif Refus</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.motifRefus.id">Id</span></dt>
+        <dd>
+          <span>{{ motifRefus.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.motifRefus.libeleAr">Libele Ar</span></dt>
+        <dd>
+          <span>{{ motifRefus.libeleAr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.motifRefus.libeleFr">Libele Fr</span></dt>
+        <dd>
+          <span>{{ motifRefus.libeleFr }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/motif-refus', motifRefus.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

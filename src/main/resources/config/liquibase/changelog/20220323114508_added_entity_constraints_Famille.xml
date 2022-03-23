@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.6.xsd">
+    <!--
+        Added the constraints for entity Famille.
+    -->
+    <changeSet id="20220323114508-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="app_user_id"
+                                 baseTableName="famille"
+                                 constraintName="fk_famille__app_user_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="app_user"/>
+
+        <addForeignKeyConstraint baseColumnNames="enfant_id"
+                                 baseTableName="famille"
+                                 constraintName="fk_famille__enfant_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="enfant"/>
+
+        <addForeignKeyConstraint baseColumnNames="motif_refus_id"
+                                 baseTableName="famille"
+                                 constraintName="fk_famille__motif_refus_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="motif_refus"/>
+
+        <addForeignKeyConstraint baseColumnNames="province_id"
+                                 baseTableName="famille"
+                                 constraintName="fk_famille__province_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="province"/>
+    </changeSet>
+</databaseChangeLog>

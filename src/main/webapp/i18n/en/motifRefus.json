@@ -1,0 +1,28 @@
+{
+  "raafiqApp": {
+    "motifRefus": {
+      "home": {
+        "title": "Motif Refuses",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Motif Refus",
+        "createOrEditLabel": "Create or edit a Motif Refus",
+        "notFound": "No Motif Refuses found"
+      },
+      "created": "A new Motif Refus is created with identifier {{ param }}",
+      "updated": "A Motif Refus is updated with identifier {{ param }}",
+      "deleted": "A Motif Refus is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Motif Refus {{ id }}?"
+      },
+      "detail": {
+        "title": "Motif Refus"
+      },
+      "id": "Id",
+      "libeleAr": "Libele Ar",
+      "libeleFr": "Libele Fr",
+      "beneficiaire": "Beneficiaire",
+      "famille": "Famille",
+      "professionnel": "Professionnel"
+    }
+  }
+}

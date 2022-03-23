@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="enfant">
+      <h2 data-cy="enfantDetailsHeading"><span jhiTranslate="raafiqApp.enfant.detail.title">Enfant</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.enfant.id">Id</span></dt>
+        <dd>
+          <span>{{ enfant.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.dateDiagnostic">Date Diagnostic</span></dt>
+        <dd>
+          <span>{{ enfant.dateDiagnostic | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ enfant.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.degreAutisme">Degre Autisme</span></dt>
+        <dd>
+          <span>{{ enfant.degreAutisme }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.mutualiste">Mutualiste</span></dt>
+        <dd>
+          <span>{{ enfant.mutualiste }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.nom">Nom</span></dt>
+        <dd>
+          <span>{{ enfant.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.nomFr">Nom Fr</span></dt>
+        <dd>
+          <span>{{ enfant.nomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.nomMedecin">Nom Medecin</span></dt>
+        <dd>
+          <span>{{ enfant.nomMedecin }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ enfant.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.prenomfr">Prenomfr</span></dt>
+        <dd>
+          <span>{{ enfant.prenomfr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.scolariser">Scolariser</span></dt>
+        <dd>
+          <span>{{ enfant.scolariser }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.sexe">Sexe</span></dt>
+        <dd>
+          <span>{{ enfant.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.enfant.specialiteMedecin">Specialite Medecin</span></dt>
+        <dd>
+          <span>{{ enfant.specialiteMedecin }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/enfant', enfant.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

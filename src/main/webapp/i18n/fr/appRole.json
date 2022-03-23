@@ -1,0 +1,26 @@
+{
+  "raafiqApp": {
+    "appRole": {
+      "home": {
+        "title": "AppRoles",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau App Role",
+        "createOrEditLabel": "Créer ou éditer un App Role",
+        "notFound": "Aucun App Role trouvé"
+      },
+      "created": "Un nouveau App Role a été créé avec l'identifiant {{ param }}",
+      "updated": "Le App Role avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le App Role avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Etes-vous certain de vouloir supprimer le App Role {{ id }} ?"
+      },
+      "detail": {
+        "title": "App Role"
+      },
+      "id": "Id",
+      "libeleAr": "Libele Ar",
+      "libeleFr": "Libele Fr",
+      "appUser": "App User"
+    }
+  }
+}

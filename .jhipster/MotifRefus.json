@@ -1,0 +1,52 @@
+{
+  "applications": "*",
+  "changelogDate": "20220323114509",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "motif_refus",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "libeleAr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "libeleFr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "MotifRefus",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "beneficiaire",
+      "otherEntityRelationshipName": "motifRefus",
+      "relationshipName": "beneficiaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "famille",
+      "otherEntityRelationshipName": "motifRefus",
+      "relationshipName": "famille",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "professionnel",
+      "otherEntityRelationshipName": "motifRefus",
+      "relationshipName": "professionnel",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}

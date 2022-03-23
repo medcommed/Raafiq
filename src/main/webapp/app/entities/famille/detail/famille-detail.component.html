@@ -1,0 +1,148 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="famille">
+      <h2 data-cy="familleDetailsHeading"><span jhiTranslate="raafiqApp.famille.detail.title">Famille</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="raafiqApp.famille.id">Id</span></dt>
+        <dd>
+          <span>{{ famille.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.adresse">Adresse</span></dt>
+        <dd>
+          <span>{{ famille.adresse }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.benef2019">Benef 2019</span></dt>
+        <dd>
+          <span>{{ famille.benef2019 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.benef2020">Benef 2020</span></dt>
+        <dd>
+          <span>{{ famille.benef2020 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.cin">Cin</span></dt>
+        <dd>
+          <span>{{ famille.cin }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.dateCreation">Date Creation</span></dt>
+        <dd>
+          <span>{{ famille.dateCreation | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.dateModification">Date Modification</span></dt>
+        <dd>
+          <span>{{ famille.dateModification | formatMediumDatetime }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.dateNaissance">Date Naissance</span></dt>
+        <dd>
+          <span>{{ famille.dateNaissance | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.email">Email</span></dt>
+        <dd>
+          <span>{{ famille.email }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.etat">Etat</span></dt>
+        <dd>
+          <span>{{ famille.etat }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.explicationRefus">Explication Refus</span></dt>
+        <dd>
+          <span>{{ famille.explicationRefus }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.nbrEnfants">Nbr Enfants</span></dt>
+        <dd>
+          <span>{{ famille.nbrEnfants }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.niveauScolarite">Niveau Scolarite</span></dt>
+        <dd>
+          <span>{{ famille.niveauScolarite }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.nom">Nom</span></dt>
+        <dd>
+          <span>{{ famille.nom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.nomFr">Nom Fr</span></dt>
+        <dd>
+          <span>{{ famille.nomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.numeroDossier">Numero Dossier</span></dt>
+        <dd>
+          <span>{{ famille.numeroDossier }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.prenom">Prenom</span></dt>
+        <dd>
+          <span>{{ famille.prenom }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.prenomFr">Prenom Fr</span></dt>
+        <dd>
+          <span>{{ famille.prenomFr }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.profession">Profession</span></dt>
+        <dd>
+          <span>{{ famille.profession }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.selectionner">Selectionner</span></dt>
+        <dd>
+          <span>{{ famille.selectionner }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.sexe">Sexe</span></dt>
+        <dd>
+          <span>{{ famille.sexe }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.telephone">Telephone</span></dt>
+        <dd>
+          <span>{{ famille.telephone }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.autreBenef2019">Autre Benef 2019</span></dt>
+        <dd>
+          <span>{{ famille.autreBenef2019 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.autreBenef2020">Autre Benef 2020</span></dt>
+        <dd>
+          <span>{{ famille.autreBenef2020 }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.relationFamiliale">Relation Familiale</span></dt>
+        <dd>
+          <span>{{ famille.relationFamiliale }}</span>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.appUser">App User</span></dt>
+        <dd>
+          <div *ngIf="famille.appUser">
+            <a [routerLink]="['/app-user', famille.appUser?.id, 'view']">{{ famille.appUser?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.enfant">Enfant</span></dt>
+        <dd>
+          <div *ngIf="famille.enfant">
+            <a [routerLink]="['/enfant', famille.enfant?.id, 'view']">{{ famille.enfant?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.motifRefus">Motif Refus</span></dt>
+        <dd>
+          <div *ngIf="famille.motifRefus">
+            <a [routerLink]="['/motif-refus', famille.motifRefus?.id, 'view']">{{ famille.motifRefus?.id }}</a>
+          </div>
+        </dd>
+        <dt><span jhiTranslate="raafiqApp.famille.province">Province</span></dt>
+        <dd>
+          <div *ngIf="famille.province">
+            <a [routerLink]="['/province', famille.province?.id, 'view']">{{ famille.province?.id }}</a>
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/famille', famille.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+{
+  "applications": "*",
+  "changelogDate": "20220323114511",
+  "dto": "mapstruct",
+  "embedded": false,
+  "entityTableName": "province",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "Long",
+      "fieldValidateRules": ["required"]
+    },
+    {
+      "fieldName": "libeleAr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "libeleFr",
+      "fieldType": "String",
+      "fieldValidateRules": ["maxlength"],
+      "fieldValidateRulesMaxlength": "255"
+    }
+  ],
+  "fluentMethods": true,
+  "jpaMetamodelFiltering": true,
+  "name": "Province",
+  "pagination": "pagination",
+  "readOnly": false,
+  "relationships": [
+    {
+      "otherEntityName": "region",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "region",
+      "relationshipType": "many-to-one"
+    },
+    {
+      "otherEntityName": "appUser",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "appUser",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "beneficiaire",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "beneficiaire",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "famille",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "famille",
+      "relationshipType": "one-to-many"
+    },
+    {
+      "otherEntityName": "professionnel",
+      "otherEntityRelationshipName": "province",
+      "relationshipName": "professionnel",
+      "relationshipType": "one-to-many"
+    }
+  ],
+  "service": "serviceClass"
+}
